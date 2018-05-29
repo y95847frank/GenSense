@@ -34,7 +34,6 @@ def run(path, fname):
     
     spear_score_max = []
     spear_score_avg = []
-    spear_score_my = []
     f_name = []
 
     for name in fname:
@@ -45,7 +44,6 @@ def run(path, fname):
         #print("Pair number for %s: %d"%(filenames[0], len(pairs)))
         coefs_max = []
         coefs_avg = []
-        coefs_my = []
         missing = 0
         for pair in pairs:
             vecs0 = []
@@ -84,54 +82,31 @@ def run(path, fname):
             ''' 
             max_value = max([1-cosine(a,b) for a in vecs0 for b in vecs1])
             avg_value = np.mean([1-cosine(a,b) for a in vecs0 for b in vecs1])
-            dist_list = [np.linalg.norm(a-b) for a in vecs0 for b in vecs1]
-            en_list = [1-cosine(a,b) for a in vecs0 for b in vecs1]
-            en_value = en_list[dist_list.index(min(dist_list))]
 
             coefs_max.append(max_value)
             coefs_avg.append(avg_value)
-            coefs_my.append(en_value)
             
         spear_max = spearmanr(scores, coefs_max)
         pearson_max = pearsonr(scores, coefs_max)
         spear_avg = spearmanr(scores, coefs_avg)
         pearson_avg = pearsonr(scores, coefs_avg)
-        spear_my = spearmanr(scores, coefs_my)
-        pearson_my = pearsonr(scores, coefs_my)
         spear_score_max.append(spear_max[0])
         spear_score_avg.append(spear_avg[0])
-        spear_score_my.append(spear_my[0])
 
-    #fw = open('result/result_all_g50.csv', 'a')
-    #fw.write('type,')
     print 'type     \t',
     for i in range(len(fname)):
         print fname[i].split('.')[0],
-        #fw.write(fname[i].split('.')[0]+',')
     
     print '\nspear max\t',
-    #fw.write('\nspear max,')
     for i in range(len(fname)):
         print '%.04f,' % (spear_score_max[i]),
-        #fw.write('%.03f,'%(spear_score_max[i]))
     
     print '\nspear avg\t',
-    #fw.write('\nspear avg,')
     for i in range(len(fname)):
         print '%.04f,' % (spear_score_avg[i]),
-        #fw.write('%.03f,'%(spear_score_avg[i]))
     
-    print '\nspear my\t',
-    #fw.write('\nspear my,')
-    for i in range(len(fname)):
-        print '%.04f,' % (spear_score_my[i]),
-        #fw.write('%.03f,'%(spear_score_my[i]))
-    #fw.write('\n')
     
-    #print("%s : smax %.03f / pmax %.03f / savg %.03f / pavg %.03f || missing : %d"
-    #    % (name, spear_max[0], pearson_max[0], spear_avg[0], pearson_avg[0], missing))
 
 if __name__ == "__main__":
-    #run('~/sim_data', ['EN-MEN.txt', 'EN-RW.txt', 'EN-SIM999.txt'])
-    run('~/sim_data', ['EN-MEN-n.txt', 'EN-MEN-l.txt', 'EN-TRUK.txt', 'EN-RG-65.txt', 'EN-RW.txt', 'EN-SIM999.txt', 'EN-WS353.txt', 'EN-WS353-s.txt', 'EN-WS353-r.txt'])
+    run('./eval_data', ['EN-MEN-n.txt', 'EN-MEN-l.txt', 'EN-TRUK.txt', 'EN-RW.txt', 'EN-WS353.txt', 'EN-WS353-s.txt', 'EN-WS353-r.txt'])
 
