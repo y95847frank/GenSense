@@ -98,9 +98,9 @@ if __name__=='__main__':
 
   parser = argparse.ArgumentParser()
   parser.add_argument("-i", "--input", type=str, default=None, help="Input word vecs")
-  parser.add_argument("-l", "--lexicon", type=str, default=None, help="Lexicon file name")
+  parser.add_argument("-s", "--lexicon", type=str, default=None, help="Lexicon file name")
   parser.add_argument("-o", "--output", type=str, help="Output word vecs")
-  parser.add_argument("-n", "--numiter", type=int, default=10, help="Num iterations")
+  parser.add_argument("-n", "--numiter", type=int, default=5, help="Num iterations")
   parser.add_argument("-w1", "--w1", type=float, default=1.0, help="Alpha Wight")
   parser.add_argument("-w2", "--w2", type=float, default=1.0, help="Beta Weight")
   parser.add_argument("-w3", "--w3", type=float, default=1.0, help="Gamma Weight")

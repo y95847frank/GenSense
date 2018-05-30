@@ -27,16 +27,20 @@
 ## Program Execution
 
 ```
-$ python all-joint_retrofit.py -i word_vec_file -l lexicon_file -n num_iter -o out_vec_file
+$ python all-joint_retrofit.py -i word_vec_file -s synonym_lexicon_file -a antonym_lexicon_file -n num_iter -o out_vec_file
+$ python synonym-joint_retrofit.py -i word_vec_file -s synonym_lexicon_file -n num_iter -o out_vec_file
+$ python antonym-joint_retrofit.py -i word_vec_file -a antonym_lexicon_file -n num_iter -o out_vec_file
+
 -i : path of word vectors input file
--l : path of ontology file
--n : number of iterations (default : n=10)
+-s : path of synonym ontology file
+-a : path of antonym ontology file
+-n : number of iterations (default : n=5)
 -o : path of output file
 ```
 
 Example : 
 ```
-python all-joint_retrofit.py -i word_vec_file -l ontology_file -n num_iter -o out_vec_file
+python all-joint_retrofit.py -i glove.txt -s lexicon/synonym_ontology.txt -a lexicon/antonym_ontology.txt -n 5 -o out.txt
 ```
 
 ## Evaluation
