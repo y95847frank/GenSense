@@ -1,7 +1,8 @@
 # GenSense
-[Natural Language Processing Laboratory](http://nlg3.csie.ntu.edu.tw) at National Taiwan University
+[Natural Language Processing Laboratory](http://nlg.csie.ntu.edu.tw) at National Taiwan University
 
 ## Overview
+With the aid of recently proposed word embedding algorithms, the study of semantic similarity has progressed and advanced rapidly. However, many natural language processing tasks need sense level representation. To address this issue, some researches propose sense embedding learning algorithms. In this paper, we present a generalized model from existing sense retrofitting model. The generalization takes three major components: semantic relations between the senses, the relation strengths and the semantic strengths. In the experiment, we show that the generalized model can outperform previous approaches in three types of experiment: semantic relatedness, contextual word similarity and semantic difference.
 
 ## Requirements
 1. Python3
@@ -57,8 +58,11 @@ In `eval_data/` directory, there are MEN, MTurk, RW, WS353 datasets. You can add
 - Jauhar, S.K. et al. 2015. Ontologically grounded multi-sense representation learning for semantic vector space models.
 - M. Faruqui, J. Dodge, S.K. Jauhar, C. Dyer, E. Hovy and N.A. Smith et al. 2015. Retrofitting word vectors to semantic lexicons.
 
-## License
+## How to cite this resource
+Please cite the following paper when referring to GenSense in academic publications and papers.
+
+Yang-Yin Lee, Ting-Yu Yen, Hen-Hsen Huang, Yow-Ting Shiue, and Hsin-Hsi Chen. 2018. GenSense: A Generalized Sense Retrofitting Model. In Proceedings of the 27th International Conference on Computational Linguistics (COLING 2018), August 20-26, 2018, Santa Fe, New Mexico, USA.
 
 ## Contact
-Feel free to [contact me](mailto:b03902052@ntu.edu.tw) if there's any problems.
+Feel free to [contact me](mailto:tyyen@nlg.csie.ntu.edu.tw) if there's any problems.
 
