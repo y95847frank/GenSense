@@ -16,10 +16,20 @@ With the aid of recently proposed word embedding algorithms, the study of semant
 
     p.s. You can download pre-trained word vector in [Word2Vec](https://code.google.com/archive/p/word2vec/) or [GloVe](https://nlp.stanford.edu/projects/glove/).
 
-2. Lexicon file (provided in `thesaurus_ontology/`)
+2. Lexicon file (provided in `lexicon/`)
 
-    It's an ontology file that contains words and its' synonyms. Each line represents a word and all it's synonyms. The format is :
-        `<wordsense><weight> <neighbor-1><weight> <neighbor-2><weight> ...`
+    It's an ontology file that contains senses and its' synonyms/antonyms. Each line represents a sense and all it's synonyms/antonyms. The format is :
+        `
+        Synonym:
+        <word>%<sense>#<weight> <synonym-word1>%<sense>#<weight> <synonym-word2>%<sense>#<weight> ...
+        Antonym:
+        <word>%<sense>#<weight> <antonym-word1>%<sense>#<weight> <antonym-word2>%<sense>#<weight> ...
+        
+        <sense>: from 0 to the maximum number of senses of the <word>
+        <weight>: 1.0, 0.6 or 0.3.
+                1.0 for the nearest synonym/antonym relation (1.0 also for itself)
+                0.3 for the farthest synonym/antonym relation
+        `
 
     ps. I used [Thesaurus-API](https://github.com/Manwholikespie/thesaurus-api) to parse the ontology.
 
@@ -47,9 +57,9 @@ python all-joint_retrofit.py -i glove.txt -s lexicon/synonym_ontology.txt -a lex
 ## Evaluation
 
 ```
-$ python we_sensesim.py word_vec_file
+$ python we_sensesim.py sense_vec_file
 ```
-This program will show the cosine similarity score of the word vector on each dataset.
+This program will show the Spearman correlation coefficient of the AvgSim/MaxSim scores on each dataset.
 In `eval_data/` directory, there are MEN, MTurk, RW, WS353 datasets. You can add more evaluation dataset to test your word vector on your own.
 
 
