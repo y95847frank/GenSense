@@ -19,7 +19,7 @@ With the aid of recently proposed word embedding algorithms, the study of semant
 2. Lexicon file (provided in `lexicon/`)
 
     It's an ontology file that contains senses and its' synonyms/antonyms. Each line represents a sense and all it's synonyms/antonyms. The format is :
-        ```
+        
         Synonym:
         <word>%<sense>#<weight> <synonym-word1>%<sense>#<weight> <synonym-word2>%<sense>#<weight> ...
         Antonym:
@@ -29,7 +29,6 @@ With the aid of recently proposed word embedding algorithms, the study of semant
         <weight>: 1.0, 0.6 or 0.3.
                 1.0 for the nearest synonym/antonym relation (1.0 also for itself)
                 0.3 for the farthest synonym/antonym relation
-        ```
 
     ps. I used [Thesaurus-API](https://github.com/Manwholikespie/thesaurus-api) to parse the ontology.
 
